@@ -3,11 +3,12 @@
 
 from hipchatAPI import HipchatAPI
 import datetime, time
+import config
 
 #914267 - Project N
 #896106 - MobilFactory
 
-hc = HipchatAPI('HIPCHAT_ACCESS_KEY')
+hc = HipchatAPI(config.config['access_key'])
 #hc.message('914267', 'Mocha Bot', 'Test')
 
 MF_ROOM_ID = '896106'
