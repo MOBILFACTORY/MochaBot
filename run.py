@@ -5,6 +5,7 @@ from hipchatAPI import HipchatAPI
 import datetime, time
 import config
 import random
+from webo_latest import WeboLatest
 
 #914267 - Project N
 #896106 - MobilFactory
@@ -44,6 +45,8 @@ birthEvents = [
 
 lastH, lastM = -1, -1
 
+webo = WeboLatest()
+
 while(True):
     curdt = datetime.datetime.now()
     weekday = curdt.weekday()
@@ -72,6 +75,17 @@ while(True):
 
         if timeEvent[2] == curtime.hour and timeEvent[3] == curtime.minute:
             hc.message(timeEvent[0], 'Mocha Bot', timeEvent[4], 'html' if timeEvent[5] else 'text')
+
+    # check webo
+    latest_articles = webo.Check()
+    for article in latest_articles:
+        msg = ''
+        if article['bo_table'] == 'daily':
+            msg = u'<strong>[새로운 드립]</strong>&nbsp;' + article['wr_subject']
+        else:
+            msg = u'<strong>[새글 알림]</strong>&nbsp;<a href="%s" target=_blank>%s</a>' % (article['href'], article['wr_subject'])
+
+        hc.message(MF_ROOM_ID, 'Mocha Bot', msg, 'html')
 
     lastH, lastM = curtime.hour, curtime.minute
 
