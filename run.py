@@ -66,7 +66,7 @@ while(True):
                 hc.message(birthEvent[0], 'Mocha Bot', BIRTH_MSG % birthEvent[3], 'html' if timeEvent[4] else 'text')
 
     # lunch Event
-    if isWeekday and curtime.hour == '13' and curtime.minute == '00':
+    if isWeekday and curtime.hour == 13 and curtime.minute == 0:
         hc.message(MF_ROOM_ID, 'Mocha Bot', '<p><strong>[점심 알림]</strong></p><br/>' + random.choice(lunchMsgList), 'html')
 
     for timeEvent in timeEvents:
