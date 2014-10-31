@@ -81,7 +81,7 @@ while(True):
     for article in latest_articles:
         msg = ''
         if article['bo_table'] == 'daily':
-            msg = u'<strong>[새로운 드립]</strong>&nbsp;' + article['wr_subject']
+            msg = u'<strong>[새로운 드립]</strong>&nbsp;%s - %s' % (article['wr_subject'], article['wr_name'])
         else:
             msg = u'<strong>[새글 알림]</strong>&nbsp;<a href="%s" target=_blank>%s</a>' % (article['href'], article['wr_subject'])
 
