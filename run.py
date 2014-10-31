@@ -7,6 +7,8 @@ import config
 import random
 from webo_latest import WeboLatest
 
+print 'Mocha bot Running!'
+
 #914267 - Project N
 #896106 - MobilFactory
 
